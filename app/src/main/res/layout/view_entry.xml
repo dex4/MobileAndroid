@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".EntryBinding">
+
+        <variable
+            name="entry"
+            type="com.mobile.diastore.model.Entry" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="@dimen/vertical_gutter_half"
+        android:layout_marginBottom="@dimen/vertical_gutter_half"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/entry_card_margin_horizontal"
+        android:layout_marginEnd="@dimen/entry_card_margin_horizontal"
+        app:cardElevation="@dimen/entry_card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground">
+
+            <TextView
+                android:id="@+id/glucose_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/glucose_level_padding_horizontal"
+                android:paddingEnd="@dimen/glucose_level_padding_horizontal"
+                android:textAppearance="@style/Headline4"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{String.valueOf(entry.bloodSugarLevel)}"
+                tools:text="124" />
+
+            <TextView
+                android:id="@+id/carbohydrates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_gutter"
+                android:textAppearance="@style/Subtitle2"
+                android:textColor="@color/colorPrimary"
+                app:carbs="@{entry.carbohydratesIntake}"
+                app:layout_constraintBottom_toTopOf="@id/date"
+                app:layout_constraintEnd_toStartOf="@id/insulin"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Carbs: 45" />
+
+            <TextView
+                android:id="@+id/insulin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Subtitle2"
+                android:textColor="@color/colorPrimary"
+                app:insulin="@{entry.insulinIntake}"
+                app:layout_constraintEnd_toStartOf="@id/physical_activity"
+                app:layout_constraintStart_toEndOf="@id/carbohydrates"
+                app:layout_constraintTop_toTopOf="@id/carbohydrates"
+                tools:text="Insulin: 3.5" />
+
+            <TextView
+                android:id="@+id/physical_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Subtitle2"
+                android:textColor="@color/colorPrimary"
+                app:sport="@{entry.physicalActivityDuration}"
+                app:layout_constraintEnd_toStartOf="@id/button_close"
+                app:layout_constraintStart_toEndOf="@id/insulin"
+                app:layout_constraintTop_toTopOf="@id/carbohydrates"
+                tools:text="Sport: 40min" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/entry_field_margin_top"
+                android:textAppearance="@style/Caption"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toTopOf="@id/time"
+                app:layout_constraintStart_toStartOf="@id/carbohydrates"
+                app:layout_constraintTop_toBottomOf="@id/carbohydrates"
+                android:text="@{entry.entryTime}"
+                tools:text="14/10/2019" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/entry_field_margin_top"
+                android:layout_marginBottom="@dimen/vertical_gutter_half"
+                android:textAppearance="@style/Caption"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/date"
+                app:layout_constraintTop_toBottomOf="@id/date"
+                android:text="@{entry.entryHour}"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/entry_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/entry_type_margin_start"
+                android:textAppearance="@style/Caption"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="@id/time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/time"
+                app:layout_constraintTop_toTopOf="@id/time"
+                app:mealType="@{entry.mealTypeSpecifier}"
+                app:momentType="@{entry.entryMomentSpecifier}"
+                tools:text="Before Meal" />
+
+            <ImageButton
+                android:id="@+id/button_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/close_button_margin_end"
+                android:layout_marginTop="@dimen/vertical_gutter_half"
+                android:src="@drawable/ic_close"
+                android:background="?selectableItemBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="glucose_level" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

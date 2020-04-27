@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mobile.diastore.feature.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_entryDetailsFragment"
+            app:destination="@id/entryDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="entry"
+                android:defaultValue="@null"
+                app:argType="com.mobile.diastore.model.Entry"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/entryDetailsFragment"
+        android:name="com.mobile.diastore.feature.details.EntryDetailsFragment"
+        android:label="EntryDetailsFragment"
+        tools:layout="@layout/fragment_entry_details">
+        <argument
+            android:name="entry"
+            android:defaultValue="@null"
+            app:argType="com.mobile.diastore.model.Entry"
+            app:nullable="true" />
+    </fragment>
+</navigation>

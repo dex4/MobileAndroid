@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DiaStore</string>
+    <string name="carbs_template">Carbs: %d</string>
+    <string name="insulin_template">Insulin: %.1f</string>
+    <string name="sport_template">Sport: %dmin</string>
+    <string name="moment_before">Before\u0020</string>
+    <string name="moment_after">After\u0020</string>
+    <string name="blood_sugar_level_label_text">Blood sugar level:</string>
+    <string name="carbs_label">Carbs:</string>
+    <string name="insulin_label">Insulin intake:</string>
+    <string name="physical_activity_label">Physical activity duration:</string>
+    <string name="snack">Snack</string>
+    <string name="dinner">Dinner</string>
+    <string name="lunch">Lunch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="meal_type">Meal type</string>
+    <string name="after_meal">After Meal</string>
+    <string name="before_meal">Before Meal</string>
+    <string name="entry_moment">Entry moment</string>
+    <string name="time_label_text">Time</string>
+    <string name="save">Save</string>
+    <string name="home_load_data_error">Could not load server data. Displaying local storage.</string>
+    <string name="home_delete_entry_error">Cannot delete entry. Try again later.</string>
+    <string name="home_update_entry_error">Cannot update entry. Try again later.</string>
+    <string name="home_add_entry_error">Could not save entry remotely. Try to sync later.</string>
+    <string name="sync">SYNC</string>
+</resources>
