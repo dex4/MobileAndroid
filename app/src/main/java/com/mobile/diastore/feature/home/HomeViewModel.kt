@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
-
+//TODO: Move service/dao calls to Repository class(es)
 class HomeViewModel(
     private val entriesDao: EntriesDao,
     private val entriesService: EntriesService
